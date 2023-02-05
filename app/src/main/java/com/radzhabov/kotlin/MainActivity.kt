@@ -2,22 +2,14 @@ package com.radzhabov.kotlin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.radzhabov.kotlin.Common.Common
-import com.radzhabov.kotlin.Data.Stations
-import retrofit2.Callback
-
+import com.radzhabov.kotlin.Model.Stations
 
 class MainActivity : AppCompatActivity() {
-    lateinit var mService: RetrofitServices
+    lateinit var mStations: Stations
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        mService = Common.retrofitService
-    }
-
-    private fun getAllStationsList(){
-        mService.getStationsList().enqueue(object : Callback<MutableList<Stations>>{})
+        print(mStations)
     }
 }
