@@ -7,6 +7,7 @@ import java.io.InputStreamReader
 
 
 public class ResourceHelper {
+
     companion object {
         fun getJsonDataFromAsset(resourcePath: String): String {
             val result = StringBuilder()
