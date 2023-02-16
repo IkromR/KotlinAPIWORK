@@ -14,11 +14,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val jsonFileString = ResourceHelper.getJsonDataFromAsset("/stations.json")
+        val jsonFileStringStations = ResourceHelperStations.getJsonDataFromAsset("/stations.json")
 
         val gson = Gson()
         val listStationsType = object : TypeToken<Stations>() {}.type
 
-        val stations: Stations = gson.fromJson(jsonFileString, listStationsType)
+        val stations: Stations = gson.fromJson(jsonFileStringStations, listStationsType)
     }
 }
