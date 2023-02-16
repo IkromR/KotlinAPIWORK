@@ -6,14 +6,14 @@ import java.io.InputStream
 import java.io.InputStreamReader
 
 
-class ResourceHelperStations {
+class ResourceHelperAirlines {
 
     companion object {
-        fun getJsonDataFromAssetStations(resourcePath: String): String {
+        fun getJsonDataFromAssetAirlines(resourcePath: String): String {
             val result = StringBuilder()
 
             try {
-                val input  = ResourceHelperStations::class.java.getResourceAsStream(resourcePath) as InputStream
+                val input  = ResourceHelperAirlines::class.java.getResourceAsStream(resourcePath) as InputStream
                 if (input != null) {
                     val reader = BufferedReader(InputStreamReader(input))
                     var string: String? = reader.readLine()

@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.radzhabov.kotlin.Model.Stations
+import com.radzhabov.kotlin.Model.Airlines
 
 class MainActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
@@ -14,11 +15,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val jsonFileStringStations = ResourceHelperStations.getJsonDataFromAsset("/stations.json")
-
-        val gson = Gson()
+        // Stations handlers
+        val jsonFileStringStations = ResourceHelperStations.getJsonDataFromAssetStations("/stations.json")
+        val gsonStations = Gson()
         val listStationsType = object : TypeToken<Stations>() {}.type
+        val stations: Stations = gsonStations.fromJson(jsonFileStringStations, listStationsType)
 
-        val stations: Stations = gson.fromJson(jsonFileStringStations, listStationsType)
+        // Airlines handlers
+        val jsonFileStringAirlines = ResourceHelperAirlines.getJsonDataFromAssetAirlines("/airlines.json")
+        val gsonAirlines = Gson()
+        val listAirlinesType = object : TypeToken<Airlines>() {}.type
+        val airlines: Airlines = gsonAirlines.fromJson(jsonFileStringAirlines, listAirlinesType)
+
     }
 }
