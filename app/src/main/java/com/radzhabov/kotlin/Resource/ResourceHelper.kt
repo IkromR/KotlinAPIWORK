@@ -1,4 +1,4 @@
-package com.radzhabov.kotlin
+package com.radzhabov.kotlin.Resource
 
 import java.io.BufferedReader
 import java.io.IOException
@@ -6,14 +6,13 @@ import java.io.InputStream
 import java.io.InputStreamReader
 
 
-class ResourceHelperAirlines {
-
+class ResourceHelper {
     companion object {
-        fun getJsonDataFromAssetAirlines(resourcePath: String): String {
+        fun getJsonDataFromAsset(resourcePath: String): String {
             val result = StringBuilder()
 
             try {
-                val input  = ResourceHelperAirlines::class.java.getResourceAsStream(resourcePath) as InputStream
+                val input  = ResourceHelper::class.java.getResourceAsStream(resourcePath) as InputStream
                 if (input != null) {
                     val reader = BufferedReader(InputStreamReader(input))
                     var string: String? = reader.readLine()
@@ -27,7 +26,6 @@ class ResourceHelperAirlines {
                 e.printStackTrace()
 
             }
-
             return result.toString()
         }
     }
